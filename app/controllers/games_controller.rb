@@ -1,4 +1,5 @@
 class GamesController < ApplicationController
+  before_action :find_game, only: [:show]
 
   def index
     @games = Game.all
@@ -6,6 +7,9 @@ class GamesController < ApplicationController
 
   def new
     @game = Game.new
+  end
+
+  def show
   end
   
   def create
@@ -25,6 +29,10 @@ class GamesController < ApplicationController
   private
     def game_params
       params.require(:game).permit(:title, :description, :number_of_players)
+    end
+
+    def find_game
+      @game = Game.find_by(params[:id])
     end
 
 end
