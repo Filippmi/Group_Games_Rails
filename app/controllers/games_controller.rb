@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  before_action :find_game, only: [:show]
+  before_action :find_game, only: [:show, :edit, :update, :destroy]
 
   def index
     @games = Game.all
@@ -21,6 +21,22 @@ class GamesController < ApplicationController
     end
   end
 
+  def edit
+
+  end
+
+  def update
+    if @game.update(game_params)
+      redirect_to game_path(@game)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @game.destroy
+    redirect_to games_path
+  end
 
 
 
@@ -32,7 +48,7 @@ class GamesController < ApplicationController
     end
 
     def find_game
-      @game = Game.find_by(params[:id])
+      @game = Game.find_by_id(params[:id])
     end
 
 end
