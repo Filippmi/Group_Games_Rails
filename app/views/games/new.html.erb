@@ -18,7 +18,7 @@
   <br>
   <h3>Please select a category for this game.</h3>
   <div>
-    <%= f.collection_select :category_id, Category.all, :id, :name %>
+    <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: "Select Category" %>
   </div>
 
   <%= f.submit "Add Game" %>
