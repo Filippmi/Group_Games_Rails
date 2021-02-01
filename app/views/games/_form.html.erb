@@ -1,0 +1,23 @@
+<%= form_for game do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <br>
+  <div>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+  <br>
+  <div>
+    <%= f.label :number_of_players %>
+    <%= f.number_field :number_of_players %>
+  </div>
+  <br>
+  <h3>Please select a category for this game.</h3>
+  <div>
+    <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: "Select Category" %>
+  </div>
+
+  <%= f.submit "Add Game" %>
+<% end %>
