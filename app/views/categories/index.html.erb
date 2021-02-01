@@ -1,0 +1,7 @@
+<h3>Categories</h3>
+<p> There are literally hundreds of different categories for group games, but ive taken what i think is the 4 fundemental categories based on the games machanics.</p>
+<div>
+  <% @categories.each do |categories| %>
+    <li><%= link_to categories.name, category_path(categories)%></li>
+  <% end %>
+</div>
