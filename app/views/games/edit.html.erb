@@ -16,6 +16,9 @@
     <%= f.number_field :number_of_players%>
   </div>
   <br>
+  <div>
+    <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: "Select Category" %>
+  </div>
 
   <%= f.submit "Edit Game" %>
 <% end %>
