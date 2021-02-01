@@ -4,8 +4,6 @@ class CreateGames < ActiveRecord::Migration[6.1]
       t.string :title
       t.text :description
       t.integer :number_of_players
-      # t.belongs_to :user, null: false, foreign_key: true
-      # t.belongs_to :categorie, null: false, foreign_key: true
 
       t.timestamps
     end
