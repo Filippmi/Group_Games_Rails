@@ -19,8 +19,8 @@
 # ])
 
 Category.create([
-  {name: "Roll and Movie", desc: "Rolling dice, spinning a wheel or drawing cards are what allow the players to make their move.", examples: "Clue, Monopoly, Candy land, The Game of Life"},
-  {name: "Worker Placement", desc: "Worker placement games are usually played slower and with more strategy. Players allocate a limited number of tokens ('workers') to multiple stations that provide various defined actions.", examples: "Viticulture, Dinosaur Island, Lord of Waterdeep, Champions of Midgard, Rajas of the Ganges"},
+  {name: "Roll and Move", desc: "Rolling dice, spinning a wheel or drawing cards are what allow the players to make their move.", examples: "Clue, Monopoly, Candy land, The Game of Life"},
+  {name: "Strategic Placement", desc: "Strategic placement games are usually played slower and with more strategy, planning your moves to ultimately dominate the board.", examples: "Ticket to ride, Sequence, Lord of Waterdeep, Champions of Midgard, Rajas of the Ganges"},
   {name: "Cooperative", desc: "Its all about team work. Players work together to acheve a comeon goal, wining the game.", examples: "Pandamic, Castle Panic, Forbidden Island"},
   {name: "Secret Identity", desc: "Desception is the name of the game. Forgeting who you are and taking in your game character as yourself.", examples: "Mafia, Coup, Secret Hitler, One Night Ultimate Werewolf"},
 ])
