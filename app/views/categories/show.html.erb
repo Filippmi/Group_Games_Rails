@@ -1,3 +1,12 @@
 <h3><%= @category.name %> </h3>
 <p><%= @category.desc %> </p>
 <p> Examples: <%= @category.examples %> </p>
+<br>
+<br>
+<p>List of Games:</p>
+
+<ul>
+  <% @category_games.each do |game| %>
+    <li><%= link_to game.title, game_path(game) %></li>
+  <% end %>
+</ul>
