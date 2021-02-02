@@ -10,14 +10,21 @@
   </div>
   <br>
   <div>
-    <%= f.label :number_of_players %>
+    <%= f.label :max_number_of_players %>
     <%= f.number_field :number_of_players %>
   </div>
   <br>
   <h3>Please select a category for this game</h3>
+
   <div>
     <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: "Select Category" %>
   </div>
+<br><br>
 
   <%= f.submit button_name %>
 <% end %>
+
+<script>$(document).ready(function(){
+    $('select').formSelect();
+  });
+</script>

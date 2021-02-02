@@ -8,24 +8,23 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
+
   </head>
 
   <body>
-    <nav>
-      <ul>
-        <li><%= link_to("Home", root_path)%> </li>
-        <li><%= link_to("Games", games_path)%> </li>
-        <li><%= link_to("Add A Game", new_game_path)%> </li>
-        <li><%= link_to("Categories", categories_path)%> </li>
-      </ul>
-    </nav>
-    <% if flash[:error] %>
-      <% flash[:error].each do |error| %>
-        <p><%= error %></p>
-      <% end %>
-    <% end %>
-
-    <%= content_tag("p", flash[:notice]) if flash[:notice] %>
-    <%= yield %>
+    <%= render 'layouts/nav' %>
+    <%= render 'layouts/errors' %>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
