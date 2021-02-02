@@ -1,13 +1,9 @@
-<nav>
-  <ul>
-    <li><%= link_to("Home", root_path)%> </li>
-    <li><%= link_to("Games", games_path)%> </li>
-    <li><%= link_to("Add A Game", new_game_path)%> </li>
-    <li><%= link_to("Categories", categories_path)%> </li>
-    <li><%= link_to("Login", "#") %> </li>
-    <li><%= link_to("Signup", signup_path) %> </li>
-    <li><%= link_to("Logout", "#") %> </li>
-    <li><%= link_to("My reviews", "#") %> </li>
-    <li><%= link_to("Reviews", "#") %> </li>
-  </ul>
-</nav>
+ <nav class="deep-orange">
+    <div class="container">
+      <%= link_to("Home", root_path, class: "brand-logo") %>
+      
+      <%= render_nav_links %>
+      
+    </div>
+  </nav>
+
