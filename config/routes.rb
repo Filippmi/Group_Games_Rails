@@ -3,6 +3,11 @@ Rails.application.routes.draw do
   #user
   get "/signup", to: "users#new", as: "signup"
   post "/signup", to: "users#create"
+  get "/login", to: "sessions#new", as: "login"
+  post "/login", to: "sessions#create"
+
+  #sessions
+  delete "/logout", to: "sessions#destroy", as: "destroy_user_session"
 
   # resources :user_reviews
   # resources :categories
