@@ -12,13 +12,13 @@ module ApplicationHelper
           link_to("Reviews", "#")
         end +
         content_tag("li") do
-          link_to("Logout", destroy_session_path, method: "DELETE")
+          link_to("Logout", destroy_user_session_path, method: "DELETE")
         end
       end
     else
       content_tag("ul", class: "right") do
         content_tag("li") do
-          link_to("Login", "#")
+          link_to("Login", login_path)
         end +
         content_tag("li") do
           link_to("Signup", signup_path)
