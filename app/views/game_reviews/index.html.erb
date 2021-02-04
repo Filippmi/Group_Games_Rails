@@ -1,0 +1,13 @@
+<h1>Game review index</h1>
+
+<div>
+  <ul>
+    <% @game_reviews.each do |reviews| %>
+      <li>Review by: <%= reviews.user.username%></li>
+      <li>Game: <%= reviews.game.title %></li>
+      <li>Content: <%= reviews.content %></li>
+      <br>
+      <br>
+    <% end %>
+  </ul>
+</div>
