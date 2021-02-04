@@ -1,5 +1,5 @@
 class GameReviewsController < ApplicationController
-  before_action :find_game, only: [:index, :show, :new, :create]
+  before_action :find_game, only: [:index, :show, :edit, :new, :create]
   before_action :find_gamereview, only: [:index, :show, :edit, :update, :destroy]
 
   def index
@@ -23,7 +23,7 @@ class GameReviewsController < ApplicationController
     @g_r = current_user.game_reviews.build(gamereview_params)
     if @g_r.save
 
-      redirect_to games_path
+      redirect_to user_path(current_user)
     else
       flash.now[:error] = @g_r.errors.full_messages
       render :new_game_review
@@ -31,15 +31,23 @@ class GameReviewsController < ApplicationController
   end
 
   def edit 
-
+    
   end
 
   def update
-    
+    if @g_r.update(gamereview_params)
+      flash[:notice] = "#{@g_r.game.title} was updated"
+      redirect_to user_path(current_user)
+    else
+      flash.now[:error] = @g_r.errors.full_messages
+      render :edit
+    end
   end
 
-  def delete
-    
+  def destroy
+    @g_r.destroy
+    flash[:notice] = "#{@g_r.game.title} review was deleted from #{current_user.username}'s reviews"
+    redirect_to user_path(current_user)
   end
 
   private
