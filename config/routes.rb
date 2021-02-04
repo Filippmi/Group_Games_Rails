@@ -26,4 +26,7 @@ Rails.application.routes.draw do
   # static
  root to: "static#home"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  #omniauth
+  match '/auth/:google_oauth2/callback' => 'sessions#google', via: [:get,:post]
 end
