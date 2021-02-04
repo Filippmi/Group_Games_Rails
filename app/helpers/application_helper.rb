@@ -6,10 +6,13 @@ module ApplicationHelper
           link_to("Games", games_path)
         end +
         content_tag("li") do
-          link_to("Categories", categories_path)
+          link_to("Add a game", new_game_path)
         end +
         content_tag("li") do
-          link_to("Reviews", "#")
+          link_to("All Reviews", game_reviews_path)
+        end +
+        content_tag("li") do
+          link_to("#{current_user.username}", user_path(current_user))
         end +
         content_tag("li") do
           link_to("Logout", destroy_user_session_path, method: "DELETE")

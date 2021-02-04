@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
 
     if @user && @user.authenticate(params[:password])
       loggin_user
-      redirect_to games_path
+      redirect_to user_path(current_user)
     else
       flash.now[:error] = ["Username or Password was incorrect"]
       render :new

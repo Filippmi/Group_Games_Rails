@@ -5,4 +5,6 @@
     <li>Content: <%= @g_r.content %></li>
     <br>
   </ul>
+  <%= link_to "Edit", edit_user_game_review_path(current_user, @g_r)%>
+  <%= link_to "Delete", game_review_path(@g_r), method: "delete" %>
 </div>
