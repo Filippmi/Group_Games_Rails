@@ -1,5 +1,6 @@
 <h1>Game list</h1>
 
+<h5><%= link_to "Game Categories", categories_path %></h5>
 <ul>
-  <%= render @games%>
+  <%= render @games.alphabetize %>
 </ul>
