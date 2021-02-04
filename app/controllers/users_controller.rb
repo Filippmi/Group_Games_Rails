@@ -4,11 +4,15 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def show
+    @game_review = current_user.game_reviews
+  end
+
   def create
     @user = User.new(user_params)
     if @user.save
       loggin_user
-      redirect_to root_path
+      render :welcomepage
     else
       flash.now[:error] = @user.errors.full_messages
       render :new
