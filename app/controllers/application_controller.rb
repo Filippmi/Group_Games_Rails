@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 
-  helper_method :user_signed_in?, :current_user
+  helper_method :user_signed_in?, :current_user, :loggin_user
 
   def user_signed_in?
     !!session[:user_id]
