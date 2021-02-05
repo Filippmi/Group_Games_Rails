@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
       user.password = SecureRandom.hex(10)
     end
     if @user && @user.id
-      session[:user_id] = @user.id
+      loggin_user
       redirect_to root_path
     else
       flash.now[:errors] = "Something went wrong trying to login with your Google account"
