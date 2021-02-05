@@ -3,7 +3,7 @@ module ApplicationHelper
     if user_signed_in?
       content_tag("ul", class: "right") do
         content_tag("li") do
-          link_to("Games", games_path)
+          link_to("All Games", games_path)
         end +
         content_tag("li") do
           link_to("Add a game", new_game_path)

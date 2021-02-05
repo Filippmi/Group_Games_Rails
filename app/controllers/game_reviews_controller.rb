@@ -45,6 +45,7 @@ class GameReviewsController < ApplicationController
   end
 
   def destroy
+    
     @g_r.destroy
     flash[:notice] = "#{@g_r.game.title} review was deleted from #{current_user.username}'s reviews"
     redirect_to user_path(current_user)
