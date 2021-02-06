@@ -3,6 +3,10 @@
 <%= form_for [@game, @g_r] do |f| %>
   <%= f.label :review %>
   <%= f.text_area :content %>
+  <br>
+  
+  <%= f.label :rating %>
+  <%= f.number_field :rating %>
 
   <%= f.hidden_field :game_id %>
   <%= f.submit "Add Review", class: "btn-small" %>
