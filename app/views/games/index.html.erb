@@ -1,6 +1,7 @@
 <h3>List of Games</h3>
 
-<h5><%= link_to "Game Categories", categories_path %></h5>
 <ul>
   <%= render @games.alphabetize %>
 </ul>
+<p><%= current_user.username%>, If you do not see your game in this list, you can add it <%= link_to "here", new_game_path%></p>
+<p>You can also look a the games based on their <%= link_to "category", categories_path %></p>

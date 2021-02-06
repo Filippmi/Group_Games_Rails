@@ -1,5 +1,5 @@
 <h3><%= @game.title %></h3>
-<h4><%= link_to "Add a Review to this game", new_game_game_reviews_path(@game) %></h4>
+<p>Add a Review to this game <%= link_to "here", new_game_game_reviews_path(@game) %></p>
 
 <p> Game description: <%= @game.description %> </p>
 <p> Max Players: <%= @game.number_of_players%> </p>
