@@ -14,6 +14,7 @@ class GameReviewsController < ApplicationController
     # byebug
     if @game
       @g_r = @game.game_reviews.build
+      session[:gamereview_id] = @g_r.id if @g_r
       render :new_game_review
     end
   end
@@ -31,7 +32,8 @@ class GameReviewsController < ApplicationController
   end
 
   def edit 
-    
+    redirect_if_no_gamereview
+    redirect_if_not_users_review
   end
 
   def update
@@ -64,5 +66,13 @@ class GameReviewsController < ApplicationController
 
     def find_gamereview
       @g_r = GameReview.find_by_id(params[:id])
+    end
+
+    def redirect_if_not_users_review
+      redirect_to user_path(current_user) unless @g_r.user == current_user
+    end
+
+    def redirect_if_no_gamereview
+      redirect_to user_path(current_user) unless @g_r.id
     end
 end

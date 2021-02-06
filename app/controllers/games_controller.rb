@@ -15,6 +15,7 @@ class GamesController < ApplicationController
   def create
     @game = Game.new(game_params)
     if @game.save
+      session[:game_id] = @game.id if @game
       redirect_to games_path
     else
       flash.now[:error] = @game.errors.full_messages

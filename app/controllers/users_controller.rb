@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    redirect_if_not_user
     @game_review = current_user.game_reviews
   end
 
@@ -24,4 +25,7 @@ class UsersController < ApplicationController
       params.require(:user).permit(:username, :email, :password)
     end
   
+    def redirect_if_not_user
+      redirect_to user_path(current_user) unless current_user
+    end
 end
