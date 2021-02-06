@@ -1,7 +1,5 @@
 <h3>Categories</h3>
 <p> There are literally hundreds of different categories for group games, but ive taken what i think is the 4 fundemental categories based on the games machanics. Some games can also be in more than one of these categories. But in each game, there is still one main "goal" the players pursue.</p>
 <div>
-  <% @categories.each do |categories| %>
-    <ul><%= link_to categories.name, category_path(categories)%></ul>
-  <% end %>
+  <ul><%= render @categories.alphabetize_categories%></ul>
 </div>
