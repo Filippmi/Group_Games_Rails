@@ -6,9 +6,6 @@ module ApplicationHelper
           link_to("All Games", games_path)
         end +
         content_tag("li") do
-          link_to("Add a game", new_game_path)
-        end +
-        content_tag("li") do
           link_to("All Reviews", game_reviews_path)
         end +
         content_tag("li") do
