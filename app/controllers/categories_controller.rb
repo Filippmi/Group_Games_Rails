@@ -7,7 +7,7 @@ class CategoriesController < ApplicationController
   def show
     @category = Category.find_by_id(params[:id])
     
-    @category_games = @category.games
+    @category_games = @category.games.alphabetize
   end
 
 end
