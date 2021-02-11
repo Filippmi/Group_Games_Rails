@@ -5,6 +5,10 @@ class GamesController < ApplicationController
     @games = Game.all
   end
 
+  def top5
+    @games = Game.top_5
+  end
+
   def new
     @game = Game.new
   end
