@@ -55,7 +55,7 @@ class GameReviewsController < ApplicationController
 
   private
     def gamereview_params
-      params.require(:game_review).permit(:content, :game_id, game_attributes: [:title])
+      params.require(:game_review).permit(:content, :rating, :game_id, game_attributes: [:title])
     end
 
     def find_game

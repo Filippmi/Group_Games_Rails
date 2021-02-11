@@ -5,3 +5,6 @@
 </ul>
 <p><%= current_user.username%>, If you do not see your game in this list, you can add it <%= link_to "here", new_game_path%></p>
 <p>You can also look a the games based on their <%= link_to "category", categories_path %></p>
+
+
+<%= link_to "Top 5 Games", top5_games_path %>

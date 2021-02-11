@@ -3,6 +3,7 @@
   <ul>
     <li>Game: <%= @g_r.game.title %></li>
     <li>Content: <%= @g_r.content %></li>
+    <li>My Rating: <%= @g_r.rating%>/5</li>
     <br>
   </ul>
   <%= link_to "Edit", edit_user_game_review_path(current_user, @g_r)%>

@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     resource :game_reviews, only: [:new, :create, :index]
   end
   resources :categories, only: [:index, :show]
+  get "/top_5", to: "games#top5", as: "top5_games"
 
 
   # static
