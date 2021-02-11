@@ -2,14 +2,17 @@ class GamesController < ApplicationController
   before_action :find_game, only: [:show, :edit, :update, :destroy]
 
   def index
+    redirect_if_not_logged_in
     @games = Game.all
   end
 
   def top5
+    redirect_if_not_logged_in
     @games = Game.top_5
   end
 
   def new
+    redirect_if_not_logged_in
     @game = Game.new
   end
 
@@ -25,26 +28,6 @@ class GamesController < ApplicationController
       flash.now[:error] = @game.errors.full_messages
       render :new
     end
-  end
-  
-  def edit
-    
-  end
-  
-  def update
-    if @game.update(game_params)
-      flash[:notice] = "#{@game.title} was updated"
-      redirect_to game_path(@game)
-    else
-      flash.now[:error] = @game.errors.full_messages
-      render :edit
-    end
-  end
-
-  def destroy
-    @game.destroy
-    flash[:notice] = "#{@game.title} was deleted!"
-    redirect_to games_path
   end
 
 

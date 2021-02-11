@@ -3,6 +3,7 @@ class GameReviewsController < ApplicationController
   before_action :find_gamereview, only: [:index, :show, :edit, :update, :destroy]
 
   def index
+    redirect_if_not_logged_in
     @game_reviews = GameReview.all
   end
   

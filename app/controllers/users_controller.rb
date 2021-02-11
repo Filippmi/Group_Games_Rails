@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   def new
+    redirect_if_logged_in
     @user = User.new
   end
 
@@ -10,6 +11,7 @@ class UsersController < ApplicationController
   end
 
   def create
+    redirect_if_logged_in
     @user = User.new(user_params)
     if @user.save
       loggin_user

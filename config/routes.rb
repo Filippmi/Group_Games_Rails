@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy", as: "destroy_user_session"
 
   # games/category
-  resources :games do
+  resources :games, only: [:index, :show, :new, :create] do
     resource :game_reviews, only: [:new, :create, :index]
   end
   resources :categories, only: [:index, :show]
@@ -26,7 +26,6 @@ Rails.application.routes.draw do
 
   # static
  root to: "static#home"
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   #omniauth
   match '/auth/:google_oauth2/callback' => 'sessions#google', via: [:get,:post]

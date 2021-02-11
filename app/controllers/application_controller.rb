@@ -14,4 +14,13 @@ class ApplicationController < ActionController::Base
     session[:user_id] = @user.id
   end
   
+  def redirect_if_not_logged_in
+    flash[:error] = ["You shall not PASS!!! unless you login"] unless user_signed_in?
+    redirect_to login_path unless user_signed_in?
+  end
+
+  def redirect_if_logged_in
+    flash[:error] = ["You're logged in and shall not PASS!!"] if user_signed_in?
+    redirect_to user_path(current_user) if user_signed_in?
+  end
 end
