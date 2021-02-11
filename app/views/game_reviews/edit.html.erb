@@ -4,6 +4,9 @@
   <%= f.label :review %>
   <%= f.text_area :content %>
 
+  <%= f.label :rating %>
+  <%= f.number_field :rating %>
+
   <%= f.hidden_field :game_id %>
   <%= f.submit "Edit Review" %>
 <% end %>
