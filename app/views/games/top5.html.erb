@@ -1,6 +1,8 @@
 <h4>Top 5 rated games</h4>
 <% @games.each do |top5| %>
   <ul>
-    <%= top5.title %>
+    <li>Game: <%=top5.title %></li>
+    <li>Game Details: <%=top5.description %></li>
+    <li>Rating: <%=top5.game_reviews.average(:rating).round(1)%>/5.0</li>
   </ul>
 <% end %>

@@ -9,6 +9,9 @@ module ApplicationHelper
           link_to("All Reviews", game_reviews_path)
         end +
         content_tag("li") do
+          link_to("Top 5 Games", top5_games_path )
+        end +
+        content_tag("li") do
           link_to("#{current_user.username}", user_path(current_user))
         end +
         content_tag("li") do
