@@ -34,7 +34,6 @@ class GameReviewsController < ApplicationController
 
   def edit 
     redirect_if_no_gamereview
-    redirect_if_not_users_review
   end
 
   def update
@@ -48,7 +47,7 @@ class GameReviewsController < ApplicationController
   end
 
   def destroy
-    
+    redirect_if_not_users_review
     @g_r.destroy
     flash[:notice] = "#{@g_r.game.title} review was deleted from #{current_user.username}'s reviews"
     redirect_to user_path(current_user)
@@ -70,7 +69,8 @@ class GameReviewsController < ApplicationController
     end
 
     def redirect_if_not_users_review
-      redirect_to user_path(current_user) unless @g_r.user == current_user
+      flash[:error] = ["You arent the one who created this review"] unless @g_r.user == current_user
+      redirect_to user_path(current_user) 
     end
 
     def redirect_if_no_gamereview
