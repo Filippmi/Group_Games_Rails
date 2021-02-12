@@ -8,7 +8,7 @@ class GameReviewsController < ApplicationController
   end
   
   def show
-    
+    redirect_if_not_logged_in
   end
 
   def new
@@ -34,9 +34,11 @@ class GameReviewsController < ApplicationController
 
   def edit 
     redirect_if_no_gamereview
+    redirect_if_not_users_review
   end
 
   def update
+    redirect_if_not_users_review
     if @g_r.update(gamereview_params)
       flash[:notice] = "#{@g_r.game.title} was updated"
       redirect_to user_path(current_user)
@@ -69,11 +71,16 @@ class GameReviewsController < ApplicationController
     end
 
     def redirect_if_not_users_review
-      flash[:error] = ["You arent the one who created this review"] unless @g_r.user == current_user
-      redirect_to user_path(current_user) 
+      flash[:error] = ["You arent the one who created this review"] unless review_user
+      # binding.pry
+      redirect_to user_path(current_user) unless review_user
     end
 
     def redirect_if_no_gamereview
       redirect_to user_path(current_user) unless @g_r.id
+    end
+
+    def review_user
+      @g_r.user_id == current_user.id
     end
 end

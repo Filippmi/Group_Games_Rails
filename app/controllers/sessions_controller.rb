@@ -1,10 +1,11 @@
 class SessionsController < ApplicationController
 
   def new
-    
+    redirect_if_logged_in
   end
 
   def create
+    redirect_if_logged_in
     @user = User.find_by_email(params[:email])
 
     if @user && @user.authenticate(params[:password])
@@ -22,6 +23,7 @@ class SessionsController < ApplicationController
   end
 
   def google
+    redirect_if_logged_in
     @user = User.find_or_create_by(username: auth["info"]["first_name"], email: auth["info"]["email"]) do |user|
       user.password = SecureRandom.hex(10)
     end

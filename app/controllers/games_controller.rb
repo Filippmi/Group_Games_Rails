@@ -17,9 +17,11 @@ class GamesController < ApplicationController
   end
 
   def show
+    redirect_if_not_logged_in
   end
   
   def create
+    redirect_if_not_logged_in
     @game = Game.new(game_params)
     if @game.save
       session[:game_id] = @game.id if @game
