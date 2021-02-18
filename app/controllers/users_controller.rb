@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       loggin_user
-      render :welcomepage
+      redirect_to user_path(current_user)
     else
       flash.now[:error] = @user.errors.full_messages
       render :new

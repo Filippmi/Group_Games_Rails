@@ -29,7 +29,7 @@ class SessionsController < ApplicationController
     end
     if @user && @user.id
       loggin_user
-      redirect_to root_path
+      redirect_to user_path(current_user)
     else
       flash.now[:errors] = "Something went wrong trying to login with your Google account"
       redirect_to login_path
